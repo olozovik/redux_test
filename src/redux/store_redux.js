@@ -29,5 +29,5 @@ const reducer = (state = 5, action) => {
   }
 };
 
-// store
+// store_slice
 export const store = createStore(reducer);

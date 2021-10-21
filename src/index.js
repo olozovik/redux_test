@@ -2,12 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import { store } from "./redux/store";
+import { store_slice } from "./redux/store_slice";
 import { Provider } from "react-redux";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider store={store_slice}>
       <App />
     </Provider>
   </React.StrictMode>,

@@ -6,14 +6,10 @@ export const increment = createAction("counter/increment");
 
 //--------------------------------------------
 // reducers with "builder callback" notation
-const reducer = createReducer({ counter: 5 }, (builder) => {
+const counterReducer = createReducer(5, (builder) => {
   builder
-    .addCase(decrement, (state, action) => {
-      state.counter += action.payload;
-    })
-    .addCase(increment, (state, action) => {
-      state.counter -= action.payload;
-    });
+    .addCase(decrement, (state, action) => state - action.payload)
+    .addCase(increment, (state, action) => state + action.payload);
 });
 
 //--------------------------------------------
@@ -32,7 +28,9 @@ const reducer = createReducer({ counter: 5 }, (builder) => {
 //   }
 // );
 
-// store
+// store_slice
 export const store = configureStore({
-  reducer,
+  reducer: {
+    counter: counterReducer,
+  },
 });
